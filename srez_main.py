@@ -25,13 +25,13 @@ tf.app.flags.DEFINE_string('log_dir', 'log',
 tf.app.flags.DEFINE_string('checkpoint_dir', 'checkpoint',
                            "Output folder where checkpoints are dumped.")
 
-tf.app.flags.DEFINE_string('disc_type', 'gan',
+tf.app.flags.DEFINE_string('disc_type', 'wgan',
                             "Discriminator type [gan, wgan]")
 
 tf.app.flags.DEFINE_integer('resume', False,
                             "Resume training.")
 
-tf.app.flags.DEFINE_float('gene_l1_factor', 0.5,
+tf.app.flags.DEFINE_float('gene_l1_factor', 0.999,
                           "Multiplier for generator L1 loss term")
 # Learning rate
 tf.app.flags.DEFINE_float('learning_rate_start', 0.00005,
@@ -49,7 +49,7 @@ tf.app.flags.DEFINE_integer('test_vectors', 16,
 tf.app.flags.DEFINE_integer('batch_size', 16,
                             "Number of samples per batch.")
 # Checkpoint
-tf.app.flags.DEFINE_integer('checkpoint_period', 1000,
+tf.app.flags.DEFINE_integer('checkpoint_period', 200,
                             "Number of batches in between checkpoints")
 
 tf.app.flags.DEFINE_string('dataset', 'dataset',

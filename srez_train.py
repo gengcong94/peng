@@ -83,6 +83,7 @@ def train_model_wgan(train_data):
         #     d_iters = 100
         for _ in range(0, d_iters):
             td.sess.run(td.d_clip)
+            #import ipdb; ipdb.set_trace()
             td.sess.run(td.disc_minimize, feed_dict = feed_dict)
 
         # Update generator

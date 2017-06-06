@@ -460,7 +460,7 @@ def create_generator_loss_wgan(disc_output, gene_output, features,labels):
     downscaled = _downscale(gene_output, K)
     
     # subtract real image
-    gene_l1_loss  = tf.reduce_mean(tf.abs(gene_output - labels), name='gene_l1_loss')
+    gene_l1_loss  = tf.reduce_mean(tf.abs(downscaled - features), name='gene_l1_loss')
 
     gene_loss     = tf.add((1.0 - FLAGS.gene_l1_factor) * gene_wgan_loss,
                            FLAGS.gene_l1_factor * gene_l1_loss, name='gene_loss')
